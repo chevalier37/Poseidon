@@ -1,6 +1,8 @@
 package com.poseidon.domain;
 
 import javax.persistence.*;
+
+
 import java.sql.Timestamp;
 
 
@@ -34,7 +36,7 @@ public class Trade {
 	private String benchmark;
 	
 	@Column(name="tradeDate")
-	private Timestamp tradeDate = new Timestamp(System.currentTimeMillis());
+	private Timestamp tradeDate;
 	
 	@Column(name="security")
 	private String security;
@@ -52,13 +54,13 @@ public class Trade {
 	private String creationName;
 	
 	@Column(name="creationDate")
-	private Timestamp creationDate = new Timestamp(System.currentTimeMillis());
+	private Timestamp creationDate;
 	
 	@Column(name="revisionName")
 	private String revisionName;
 	
 	@Column(name="revisionDate")
-	private Timestamp revisionDate = new Timestamp(System.currentTimeMillis());
+	private Timestamp revisionDate;
 	
 	@Column(name="dealName")
 	private String dealName;
@@ -75,6 +77,9 @@ public class Trade {
 	public Trade(String account, String type) {
 		this.account = account;
 		this.type = type;
+	}
+	
+	public Trade() {
 	}
 
 	public Integer getTradeId() {

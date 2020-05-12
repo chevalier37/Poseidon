@@ -36,6 +36,9 @@ public class RuleName {
 		this.sqlStr = sqlStr;
 		this.sqlPart = sqlPart;
 	}
+	
+	public RuleName() {
+	}
 
 	public void setId(Integer id) {
 		this.id = id;

@@ -1,4 +1,4 @@
-package com.poseidon;
+package com.poseidon.dao;
 
 
 import org.junit.Assert;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CurvePointTests {
+public class CurvePointTestsDAO {
 
 	@Autowired
 	private CurvePointRepository curvePointRepository;

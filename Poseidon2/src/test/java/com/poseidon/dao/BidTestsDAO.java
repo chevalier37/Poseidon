@@ -1,4 +1,4 @@
-package com.poseidon;
+package com.poseidon.dao;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BidTests {
+public class BidTestsDAO {
 
 	@Autowired
 	private BidListRepository bidListRepository;

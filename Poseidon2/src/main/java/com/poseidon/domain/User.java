@@ -22,8 +22,22 @@ public class User {
     
     @NotBlank(message = "Role is mandatory")
     private String role;
+    
+    public User() {
+	}
 
-    public Integer getId() {
+    public User(@NotBlank(message = "Username is mandatory") String username,
+			@NotBlank(message = "Password is mandatory") String password,
+			@NotBlank(message = "FullName is mandatory") String fullname,
+			@NotBlank(message = "Role is mandatory") String role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.role = role;
+	}
+
+	public Integer getId() {
         return id;
     }
 

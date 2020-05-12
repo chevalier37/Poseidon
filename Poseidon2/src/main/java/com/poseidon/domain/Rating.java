@@ -22,6 +22,9 @@ public class Rating {
 	
 	@Column(name="orderNumber")
 	private Integer orderNumber;
+	
+	public Rating() {
+	}
 
 	public Rating(String moodysRating, String sandPRating, String fitchRating, Integer orderNumber) {
 		this.moodysRating = moodysRating;
