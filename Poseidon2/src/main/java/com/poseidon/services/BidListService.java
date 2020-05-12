@@ -17,7 +17,7 @@ public class BidListService {
 	@Autowired
 	private BidListRepository bidListRepository;
 	
-	public List<BidList> finfAllBidList(){
+	public List<BidList> findAllBidList(){
 		return bidListRepository.findAll();
 	}
 	

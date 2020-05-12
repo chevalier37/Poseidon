@@ -24,7 +24,7 @@ public class BidListController {
 
 	@GetMapping("/bidList/list")
     public List<BidList> home(){
-        return bidListService.finfAllBidList();
+        return bidListService.findAllBidList();
     }
 
     @PostMapping("/bidList/add")
