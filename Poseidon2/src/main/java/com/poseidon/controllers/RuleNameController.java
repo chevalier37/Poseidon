@@ -1,6 +1,5 @@
 package com.poseidon.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,6 @@ public class RuleNameController {
 	@Autowired
 	private RuleNameService ruleNameService;
 
-	@GetMapping("/ruleName/list")
-    public List<RuleName> home(){
-        return ruleNameService.findAllRuleName();
-    }
 
     @PostMapping("/ruleName/add")
     public RuleName addRuleName(@RequestBody RuleName ruleName) {

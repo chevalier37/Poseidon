@@ -1,6 +1,5 @@
 package com.poseidon.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +20,6 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-
-	@GetMapping("/user/list")
-    public List<User> home(){
-        return userService.findAllUser();
-    }
 
     @PostMapping("/user/add")
     public User addUser(@RequestBody User user) {

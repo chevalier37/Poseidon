@@ -1,6 +1,5 @@
 package com.poseidon.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,6 @@ public class TradeController {
 	@Autowired
 	private TradeService tradeService;
 
-	@GetMapping("/trade/list")
-    public List<Trade> home(){
-        return tradeService.findAllTrade();
-    }
 
     @PostMapping("/trade/add")
     public Trade addTrade(@RequestBody Trade trade) {

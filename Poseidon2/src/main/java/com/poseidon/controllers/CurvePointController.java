@@ -1,6 +1,5 @@
 package com.poseidon.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,6 @@ public class CurvePointController {
 	@Autowired
 	private CurvePointService curvePointservice;
 
-	@GetMapping("/curvePoint/list")
-    public List<CurvePoint> home(){
-        return curvePointservice.findAllcurvePoint();
-    }
 
     @PostMapping("/curvePoint/add")
     public CurvePoint addBidForm(@RequestBody CurvePoint curvePoint) {

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.poseidon.domain.BidList;
 import com.poseidon.services.BidListService;
 
-import java.util.List;
 import java.util.Optional;
 
 
@@ -21,11 +20,6 @@ public class BidListController {
 
 	@Autowired
 	private BidListService bidListService;
-
-	@GetMapping("/bidList/list")
-    public List<BidList> home(){
-        return bidListService.findAllBidList();
-    }
 
     @PostMapping("/bidList/add")
     public BidList addBidForm(@RequestBody BidList bid) {

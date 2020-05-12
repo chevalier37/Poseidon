@@ -1,6 +1,5 @@
 package com.poseidon.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,6 @@ public class RatingController {
 	@Autowired
 	private RatingService ratingService;
 
-	@GetMapping("/rating/list")
-    public List<Rating> home(){
-        return ratingService.findAllRating();
-    }
 
     @PostMapping("/rating/add")
     public Rating addRating(@RequestBody Rating rating) {
