@@ -30,7 +30,7 @@ public class UserTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void findAllBidListTest() {
+	public void findAllUserTest() {
 		User user = new User("Bob", "1234", "Boby", "admin");
 		User user1 = new User("Bob1", "12345", "Boby1", "admin1");
 		userRepository.save(user);
@@ -48,7 +48,7 @@ public class UserTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void addBidTest() {
+	public void addUserTest() {
 		User user = new User("Bob", "1234", "Boby", "admin");
 		userService.addUser(user);
 		
@@ -58,7 +58,7 @@ public class UserTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void getBidListByIdTest() {
+	public void getUserByIdTest() {
 		User user = new User("Bob", "1234", "Boby", "admin");
 		userRepository.save(user);
 		
@@ -67,7 +67,7 @@ public class UserTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void deleteBidListTest() {
+	public void deleteUserTest() {
 		User user = new User("Bob", "1234", "Boby", "admin");
 		userRepository.save(user);
 		

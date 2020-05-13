@@ -30,7 +30,7 @@ public class RuleNameTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void findAllBidListTest() {
+	public void findRuleNameTest() {
 		RuleName ruleName = new RuleName("name", "description", "json", "template", "sqlStr", "sqlPart");
 		RuleName ruleName1 = new RuleName("name1", "description1", "json1", "template1", "sqlStr1", "sqlPart1");
 		ruleNameRepository.save(ruleName);
@@ -48,7 +48,7 @@ public class RuleNameTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void addBidTest() {
+	public void addRuleNameTest() {
 		RuleName ruleName = new RuleName("name", "description", "json", "template", "sqlStr", "sqlPart");
 		ruleNameService.addRuleName(ruleName);
 		
@@ -58,7 +58,7 @@ public class RuleNameTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void getBidListByIdTest() {
+	public void getRuleNameByIdTest() {
 		RuleName ruleName = new RuleName("name", "description", "json", "template", "sqlStr", "sqlPart");
 		ruleNameRepository.save(ruleName);
 		
@@ -67,7 +67,7 @@ public class RuleNameTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void deleteBidListTest() {
+	public void deleteRuleNameTest() {
 		RuleName ruleName = new RuleName("name", "description", "json", "template", "sqlStr", "sqlPart");
 		ruleNameRepository.save(ruleName);
 		ruleNameService.deleteRuleName(1);

@@ -1,5 +1,7 @@
 package com.poseidon.controllers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,20 +22,26 @@ public class BidListController {
 
 	@Autowired
 	private BidListService bidListService;
+	
+	private static final Logger logger = LogManager.getRootLogger();
 
     @PostMapping("/bidList/add")
     public BidList addBidForm(@RequestBody BidList bid) {
+    	logger.info("Add bidList : {}" , bid);
         return bidListService.addBid(bid);
     }
 
     @GetMapping("/bidList/findId/{id}")
     public Optional<BidList> showUpdateForm(@PathVariable("id") Integer id) {
-        return bidListService.getBidListById(id);
+    	Optional<BidList> bidlist = bidListService.getBidListById(id);
+    	logger.info("Get bidList : {}" , bidlist);
+        return bidlist;
     }
 
     @PutMapping("/bidList/update/{id}")
     public BidList updateBid(@PathVariable("id") Integer id, @RequestBody BidList bidList) {
     	bidList.setBidListId(id);
+    	logger.info("Update bidList : {}" , bidList);
         return bidListService.addBid(bidList);
     }
 
@@ -41,6 +49,7 @@ public class BidListController {
     public void  deleteBid(@PathVariable("id") Integer id) {
     	Optional<BidList> bid = bidListService.getBidListById(id);
     	int idBid = bid.get().getBidListId();
+    	logger.info("Delete bidList : {}" , bid);
     	bidListService.deleteBidList(idBid);
     }
 }

@@ -30,7 +30,7 @@ public class CurvePointTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void findAllBidListTest() {
+	public void findAllCurvePointTest() {
 		CurvePoint curvePoint = new CurvePoint(3, 5.0, 6.0);
 		CurvePoint curvePoint1 = new CurvePoint(4, 6.0, 7.0);
 		curvePointRepository.save(curvePoint);
@@ -47,7 +47,7 @@ public class CurvePointTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void addBidTest() {
+	public void addCurvePointTest() {
 		CurvePoint curvePoint = new CurvePoint(3, 5.0, 6.0);
 		curvePointService.addcurvePoint(curvePoint);
 		
@@ -56,7 +56,7 @@ public class CurvePointTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void getBidListByIdTest() {
+	public void getCurvePointByIdTest() {
 		CurvePoint curvePoint = new CurvePoint(3, 5.0, 6.0);
 		curvePointRepository.save(curvePoint);
 		
@@ -65,7 +65,7 @@ public class CurvePointTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void deleteBidListTest() {
+	public void deleteCurvePointTest() {
 		CurvePoint curvePoint = new CurvePoint(3, 5.0, 6.0);
 		curvePointRepository.save(curvePoint);
 		

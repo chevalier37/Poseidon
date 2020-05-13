@@ -26,11 +26,7 @@ public class User {
     public User() {
 	}
 
-    public User(@NotBlank(message = "Username is mandatory") String username,
-			@NotBlank(message = "Password is mandatory") String password,
-			@NotBlank(message = "FullName is mandatory") String fullname,
-			@NotBlank(message = "Role is mandatory") String role) {
-		super();
+    public User(String username,String password, String fullname, String role) {
 		this.username = username;
 		this.password = password;
 		this.fullname = fullname;
@@ -79,7 +75,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", fullname=" + fullname
+		return "User [username=" + username + ", password=" + password + ", fullname=" + fullname
 				+ ", role=" + role + "]";
 	}
     

@@ -30,7 +30,7 @@ public class RatingTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void findAllBidListTest() {
+	public void findAllRatingTest() {
 		Rating rating = new Rating("moodysRating", "sandPRating", "fitchRating", 10);
 		Rating rating1 = new Rating("moodysRating1", "sandPRating1", "fitchRating1", 20);
 		ratingRepository.save(rating);
@@ -48,7 +48,7 @@ public class RatingTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void addBidTest() {
+	public void addRatingTest() {
 		Rating rating = new Rating("moodysRating", "sandPRating", "fitchRating", 10);
 		ratingService.addRating(rating);
 		
@@ -58,7 +58,7 @@ public class RatingTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void getBidListByIdTest() {
+	public void getRatingByIdTest() {
 		Rating rating = new Rating("moodysRating", "sandPRating", "fitchRating", 10);
 		ratingRepository.save(rating);
 		
@@ -67,7 +67,7 @@ public class RatingTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void deleteBidListTest() {
+	public void deleteRatingTest() {
 		Rating rating = new Rating("moodysRating", "sandPRating", "fitchRating", 10);
 		ratingRepository.save(rating);
 		

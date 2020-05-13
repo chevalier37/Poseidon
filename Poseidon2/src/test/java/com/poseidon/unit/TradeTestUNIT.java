@@ -30,7 +30,7 @@ public class TradeTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void findAllBidListTest() {
+	public void findAllTradeTest() {
 		Trade trade = new Trade("account", "type");
 		Trade trade1 = new Trade("account1", "type1");
 		tradeRepository.save(trade);
@@ -48,7 +48,7 @@ public class TradeTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void addBidTest() {
+	public void addTradeTest() {
 		Trade trade = new Trade("account", "type");
 		tradeService.addTrade(trade);
 		
@@ -58,7 +58,7 @@ public class TradeTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void getBidListByIdTest() {
+	public void getTradeByIdTest() {
 		Trade trade = new Trade("account", "type");
 		tradeRepository.save(trade);
 		
@@ -67,7 +67,7 @@ public class TradeTestUNIT {
 	
 	@Test
 	@Sql({"/poseidonTest.sql"}) 
-	public void deleteBidListTest() {
+	public void deleteTradeTest() {
 		Trade trade = new Trade("account", "type");
 		tradeRepository.save(trade);
 		
