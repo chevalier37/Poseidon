@@ -9,29 +9,26 @@ import org.springframework.stereotype.Service;
 import com.poseidon.domain.BidList;
 import com.poseidon.repositories.BidListRepository;
 
-
-
-@Service
+@Service("bidListService")
 public class BidListService {
-	
+
 	@Autowired
 	private BidListRepository bidListRepository;
-	
-	public List<BidList> findAllBidList(){
+
+	public List<BidList> findAllBidList() {
 		return bidListRepository.findAll();
 	}
-	
+
 	public BidList addBid(BidList bid) {
 		return bidListRepository.save(bid);
 	}
-	
+
 	public Optional<BidList> getBidListById(int id) {
 		return bidListRepository.findById(id);
 	}
-	
+
 	public void deleteBidList(int id) {
 		bidListRepository.deleteById(id);
 	}
-	
 
 }

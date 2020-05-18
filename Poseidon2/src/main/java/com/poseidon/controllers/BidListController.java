@@ -1,5 +1,7 @@
 package com.poseidon.controllers;
 
+import java.util.Optional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,42 +16,39 @@ import org.springframework.web.bind.annotation.RestController;
 import com.poseidon.domain.BidList;
 import com.poseidon.services.BidListService;
 
-import java.util.Optional;
-
-
 @RestController
 public class BidListController {
 
 	@Autowired
 	private BidListService bidListService;
-	
+
 	private static final Logger logger = LogManager.getRootLogger();
 
-    @PostMapping("/bidList/add")
-    public BidList addBidForm(@RequestBody BidList bid) {
-    	logger.info("Add bidList : {}" , bid);
-        return bidListService.addBid(bid);
-    }
+	@PostMapping("/bidList/add")
+	public BidList addBidForm(@RequestBody BidList bid) {
+		logger.info("Add bidList : {}", bid);
+		return bidListService.addBid(bid);
+	}
 
-    @GetMapping("/bidList/findId/{id}")
-    public Optional<BidList> showUpdateForm(@PathVariable("id") Integer id) {
-    	Optional<BidList> bidlist = bidListService.getBidListById(id);
-    	logger.info("Get bidList : {}" , bidlist);
-        return bidlist;
-    }
+	@GetMapping("/bidList/findId/{id}")
+	public Optional<BidList> showUpdateForm(@PathVariable("id") Integer id) {
+		Optional<BidList> bidlist = bidListService.getBidListById(id);
+		logger.info("Get bidList : {}", bidlist);
+		return bidlist;
+	}
 
-    @PutMapping("/bidList/update/{id}")
-    public BidList updateBid(@PathVariable("id") Integer id, @RequestBody BidList bidList) {
-    	bidList.setBidListId(id);
-    	logger.info("Update bidList : {}" , bidList);
-        return bidListService.addBid(bidList);
-    }
+	@PutMapping("/bidList/update/{id}")
+	public BidList updateBid(@PathVariable("id") Integer id, @RequestBody BidList bidList) {
+		bidList.setBidListId(id);
+		logger.info("Update bidList : {}", bidList);
+		return bidListService.addBid(bidList);
+	}
 
-    @DeleteMapping("/bidList/delete/{id}")
-    public void  deleteBid(@PathVariable("id") Integer id) {
-    	Optional<BidList> bid = bidListService.getBidListById(id);
-    	int idBid = bid.get().getBidListId();
-    	logger.info("Delete bidList : {}" , bid);
-    	bidListService.deleteBidList(idBid);
-    }
+	@DeleteMapping("/bidList/delete/{id}")
+	public void deleteBid(@PathVariable("id") Integer id) {
+		Optional<BidList> bid = bidListService.getBidListById(id);
+		int idBid = bid.get().getBidListId();
+		logger.info("Delete bidList : {}", bid);
+		bidListService.deleteBidList(idBid);
+	}
 }

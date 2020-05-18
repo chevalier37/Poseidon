@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin
 public class JwtAuthenticationController {
+
 	@Autowired
 	private AuthenticationManager authenticationManager;
+
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
+
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 
