@@ -1,5 +1,6 @@
-package com.poseidon.integration;
+package com.poseidon.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class UserTestController {
+public class RatingControllerTest {
 
 	static String fullToken;
 
@@ -43,42 +44,46 @@ public class UserTestController {
 
 	@Test
 	@Sql({ "/poseidonTest.sql" })
-	public void postUser() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.post("/user/add").header("Authorization", fullToken)
+	public void postRating() throws Exception {
+		this.mockMvc.perform(MockMvcRequestBuilders.post("/rating/add").header("Authorization", fullToken)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(
-						"{\"username\":\"usernam12\",\"password\":\"paDdededede?\", \"fullname\":\"fullname\",\"role\":\"role\"}")
-				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
-
+						"{\"moodysRating\":\"moodysRating\",\"sandPRating\":\"sandPRating\",\"fitchRating\":\"fitchRating\", \"orderNumber\":10}")
+				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk())
+				.andExpect(content().string(
+						"{\"id\":1,\"moodysRating\":\"moodysRating\",\"sandPRating\":\"sandPRating\",\"fitchRating\":\"fitchRating\",\"orderNumber\":10}"));
 	}
 
 	@Test
 	@Sql({ "/poseidonTest.sql" })
-	public void getUser() throws Exception {
-		this.postUser();
+	public void getRating() throws Exception {
+		this.postRating();
 		this.mockMvc
-				.perform(MockMvcRequestBuilders.get("/user/findId/1").header("Authorization", fullToken)
+				.perform(MockMvcRequestBuilders.get("/rating/findId/1").header("Authorization", fullToken)
 						.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
-				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
+				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()).andExpect(content().string(
+						"{\"id\":1,\"moodysRating\":\"moodysRating\",\"sandPRating\":\"sandPRating\",\"fitchRating\":\"fitchRating\",\"orderNumber\":10}"));
 	}
 
 	@Test
 	@Sql({ "/poseidonTest.sql" })
-	public void updateUser() throws Exception {
-		this.postUser();
-		this.mockMvc.perform(MockMvcRequestBuilders.put("/user/update/1").header("Authorization", fullToken)
+	public void updateRating() throws Exception {
+		this.postRating();
+		this.mockMvc.perform(MockMvcRequestBuilders.put("/rating/update/1").header("Authorization", fullToken)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(
-						"{\"id\":1,\"username\":\"usernam12\",\"password\":\"$2a$10$tLdH7KlDr.VBhqLsnCJcz.yWWQ.Fh6rKMom.4VYSmSOLlSE/Xo/gy\",\"fullname\":\"fullname1\",\"role\":\"role\"}")
-				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
+						"{\"moodysRating\":\"moodysRating\",\"sandPRating\":\"sandPRating\",\"fitchRating\":\"fitchRating\", \"orderNumber\":100}")
+				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk())
+				.andExpect(content().string(
+						"{\"id\":1,\"moodysRating\":\"moodysRating\",\"sandPRating\":\"sandPRating\",\"fitchRating\":\"fitchRating\",\"orderNumber\":100}"));
 	}
 
 	@Test
 	@Sql({ "/poseidonTest.sql" })
-	public void deleteUser() throws Exception {
-		this.postUser();
+	public void deleteRating() throws Exception {
+		this.postRating();
 		this.mockMvc
-				.perform(MockMvcRequestBuilders.delete("/user/delete/1").header("Authorization", fullToken)
+				.perform(MockMvcRequestBuilders.delete("/rating/delete/1").header("Authorization", fullToken)
 						.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
 	}

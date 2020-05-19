@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CurvePointTestsDAO {
+public class CurvePointDAOTest {
 
 	@Autowired
 	private CurvePointRepository curvePointRepository;

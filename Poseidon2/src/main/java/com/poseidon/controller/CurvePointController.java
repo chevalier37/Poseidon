@@ -1,4 +1,4 @@
-package com.poseidon.controllers;
+package com.poseidon.controller;
 
 import java.util.Optional;
 

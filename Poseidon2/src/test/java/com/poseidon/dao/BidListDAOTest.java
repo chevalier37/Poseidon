@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BidTestsDAO {
+public class BidListDAOTest {
 
 	@Autowired
 	private BidListRepository bidListRepository;

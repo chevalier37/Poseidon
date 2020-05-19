@@ -18,7 +18,7 @@ import com.poseidon.repositories.UserRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserTestDAO {
+public class UserDAOTest {
 	
 	@Autowired
 	private UserRepository userRepository;

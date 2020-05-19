@@ -1,4 +1,4 @@
-package com.poseidon.integration;
+package com.poseidon.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class RuleNameTestController {
+public class TradeControllerTest {
 
 	static String fullToken;
 
@@ -44,46 +44,44 @@ public class RuleNameTestController {
 
 	@Test
 	@Sql({ "/poseidonTest.sql" })
-	public void postRuleName() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.post("/ruleName/add").header("Authorization", fullToken)
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(
-						"{\"name\":\"name\",\"description\":\"description\",\"json\":\"json\", \"template\":\"template\",\"sqlStr\":\"sqlStr\",\"sqlPart\":\"sqlPart\"}")
-				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk())
-				.andExpect(content().string(
-						"{\"id\":1,\"name\":\"name\",\"description\":\"description\",\"json\":\"json\",\"template\":\"template\",\"sqlStr\":\"sqlStr\",\"sqlPart\":\"sqlPart\"}"));
+	public void postTrade() throws Exception {
+		this.mockMvc
+				.perform(MockMvcRequestBuilders.post("/trade/add").header("Authorization", fullToken)
+						.contentType(MediaType.APPLICATION_JSON).content("{\"account\":\"account\",\"type\":\"type\"}")
+						.accept(MediaType.APPLICATION_JSON))
+				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()).andExpect(content().string(
+						"{\"tradeId\":1,\"account\":\"account\",\"type\":\"type\",\"buyQuantity\":null,\"sellQuantity\":null,\"buyPrice\":null,\"sellPrice\":null,\"benchmark\":null,\"tradeDate\":null,\"security\":null,\"status\":null,\"trader\":null,\"book\":null,\"creationName\":null,\"creationDate\":null,\"revisionName\":null,\"revisionDate\":null,\"dealName\":null,\"dealType\":null,\"sourceListId\":null,\"side\":null}"));
 	}
 
 	@Test
 	@Sql({ "/poseidonTest.sql" })
 	public void getRuleName() throws Exception {
-		this.postRuleName();
+		this.postTrade();
 		this.mockMvc
-				.perform(MockMvcRequestBuilders.get("/ruleName/findId/1").header("Authorization", fullToken)
+				.perform(MockMvcRequestBuilders.get("/trade/findId/1").header("Authorization", fullToken)
 						.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()).andExpect(content().string(
-						"{\"id\":1,\"name\":\"name\",\"description\":\"description\",\"json\":\"json\",\"template\":\"template\",\"sqlStr\":\"sqlStr\",\"sqlPart\":\"sqlPart\"}"));
+						"{\"tradeId\":1,\"account\":\"account\",\"type\":\"type\",\"buyQuantity\":null,\"sellQuantity\":null,\"buyPrice\":null,\"sellPrice\":null,\"benchmark\":null,\"tradeDate\":null,\"security\":null,\"status\":null,\"trader\":null,\"book\":null,\"creationName\":null,\"creationDate\":null,\"revisionName\":null,\"revisionDate\":null,\"dealName\":null,\"dealType\":null,\"sourceListId\":null,\"side\":null}"));
 	}
 
 	@Test
 	@Sql({ "/poseidonTest.sql" })
 	public void updateRuleName() throws Exception {
-		this.postRuleName();
-		this.mockMvc.perform(MockMvcRequestBuilders.put("/ruleName/update/1").header("Authorization", fullToken)
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(
-						"{\"name\":\"name1\",\"description\":\"description\",\"json\":\"json\",\"template\":\"template\",\"sqlStr\":\"sqlStr\",\"sqlPart\":\"sqlPart\"}")
-				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk())
-				.andExpect(content().string(
-						"{\"id\":1,\"name\":\"name1\",\"description\":\"description\",\"json\":\"json\",\"template\":\"template\",\"sqlStr\":\"sqlStr\",\"sqlPart\":\"sqlPart\"}"));
+		this.postTrade();
+		this.mockMvc
+				.perform(MockMvcRequestBuilders.put("/trade/update/1").header("Authorization", fullToken)
+						.contentType(MediaType.APPLICATION_JSON).content("{\"account\":\"account\",\"type\":\"type1\"}")
+						.accept(MediaType.APPLICATION_JSON))
+				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()).andExpect(content().string(
+						"{\"tradeId\":1,\"account\":\"account\",\"type\":\"type1\",\"buyQuantity\":null,\"sellQuantity\":null,\"buyPrice\":null,\"sellPrice\":null,\"benchmark\":null,\"tradeDate\":null,\"security\":null,\"status\":null,\"trader\":null,\"book\":null,\"creationName\":null,\"creationDate\":null,\"revisionName\":null,\"revisionDate\":null,\"dealName\":null,\"dealType\":null,\"sourceListId\":null,\"side\":null}"));
 	}
 
 	@Test
 	@Sql({ "/poseidonTest.sql" })
 	public void deleteRuleName() throws Exception {
-		this.postRuleName();
+		this.postTrade();
 		this.mockMvc
-				.perform(MockMvcRequestBuilders.delete("/ruleName/delete/1").header("Authorization", fullToken)
+				.perform(MockMvcRequestBuilders.delete("/trade/delete/1").header("Authorization", fullToken)
 						.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
 	}

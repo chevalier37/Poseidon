@@ -1,4 +1,4 @@
-package com.poseidon.unit;
+package com.poseidon.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,7 +20,7 @@ import com.poseidon.services.RuleNameService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RuleNameTestUNIT {
+public class RuleNameTest {
 	
 	@Autowired
 	private RuleNameRepository ruleNameRepository;
