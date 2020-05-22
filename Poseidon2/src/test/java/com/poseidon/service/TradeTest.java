@@ -14,9 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.poseidon.domain.Trade;
-import com.poseidon.repositories.TradeRepository;
-import com.poseidon.services.TradeService;
+import com.poseidon.model.Trade;
+import com.poseidon.repositorie.TradeRepository;
+import com.poseidon.service.TradeService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

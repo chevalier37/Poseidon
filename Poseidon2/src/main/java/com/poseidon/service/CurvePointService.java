@@ -1,4 +1,4 @@
-package com.poseidon.services;
+package com.poseidon.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.poseidon.domain.CurvePoint;
-import com.poseidon.repositories.CurvePointRepository;
+import com.poseidon.model.CurvePoint;
+import com.poseidon.repositorie.CurvePointRepository;
 
 @Service
 public class CurvePointService {

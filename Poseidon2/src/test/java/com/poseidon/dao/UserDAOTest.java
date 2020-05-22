@@ -13,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.poseidon.domain.User;
-import com.poseidon.repositories.UserRepository;
+import com.poseidon.model.User;
+import com.poseidon.repositorie.UserRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -47,8 +47,19 @@ public class UserControllerTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/user/add").header("Authorization", fullToken)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(
-						"{\"username\":\"usernam12\",\"password\":\"paDdededede?\", \"fullname\":\"fullname\",\"role\":\"role\"}")
+						"{\"username\":\"usernam45\",\"password\":\"1paDdededede?\", \"fullname\":\"fullname\",\"role\":\"role\"}")
 				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
+
+	}
+
+	@Test
+	@Sql({ "/poseidonTest.sql" })
+	public void postUserFail() throws Exception {
+		this.mockMvc.perform(MockMvcRequestBuilders.post("/user/add").header("Authorization", fullToken)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{\"username\":\"usernam45\",\"password\":\"1\", \"fullname\":\"fullname\",\"role\":\"role\"}")
+				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print())
+				.andExpect(status().isInternalServerError());
 
 	}
 
@@ -69,7 +80,7 @@ public class UserControllerTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/user/update/1").header("Authorization", fullToken)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(
-						"{\"id\":1,\"username\":\"usernam12\",\"password\":\"$2a$10$tLdH7KlDr.VBhqLsnCJcz.yWWQ.Fh6rKMom.4VYSmSOLlSE/Xo/gy\",\"fullname\":\"fullname1\",\"role\":\"role\"}")
+						"{\"id\":1,\"username\":\"usernam45\",\"password\":\"$2a$10$mhD7.ca36mbDOIi3M/4WA.lg.Fhq73hLHzG2uRYS6plx4X.44/L/m\",\"fullname\":\"fullname1\",\"role\":\"role\"}")
 				.accept(MediaType.APPLICATION_JSON)).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
 	}
 

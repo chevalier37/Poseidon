@@ -14,9 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.poseidon.domain.User;
-import com.poseidon.repositories.UserRepository;
-import com.poseidon.services.UserService;
+import com.poseidon.model.User;
+import com.poseidon.repositorie.UserRepository;
+import com.poseidon.service.UserService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

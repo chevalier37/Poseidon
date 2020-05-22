@@ -14,9 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.poseidon.domain.Rating;
-import com.poseidon.repositories.RatingRepository;
-import com.poseidon.services.RatingService;
+import com.poseidon.model.Rating;
+import com.poseidon.repositorie.RatingRepository;
+import com.poseidon.service.RatingService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

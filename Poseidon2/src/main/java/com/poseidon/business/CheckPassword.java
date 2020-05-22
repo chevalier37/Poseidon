@@ -8,7 +8,8 @@ public class CheckPassword {
 	{
 		passwordRegexes[0] = Pattern.compile(".*[A-Z].*");
 		passwordRegexes[1] = Pattern.compile(".*[a-z].*");
-		passwordRegexes[2] = Pattern.compile(".*[~!@#$%\\^&*()\\-_=+\\|\\[{\\]};:'\",<.>/?].*");
+		passwordRegexes[2] = Pattern.compile(".*[0-9].*");
+		passwordRegexes[3] = Pattern.compile(".*[~!@#$%\\^&*()\\-_=+\\|\\[{\\]};:'\",<.>/?].*");
 	}
 
 	public static boolean isLegalPassword(String pass) {
@@ -20,7 +21,10 @@ public class CheckPassword {
 		for (int i = 0; i < passwordRegexes.length; i++) {
 			if (!Pattern.compile(".*[A-Z].*").matcher(pass).matches()
 					|| !Pattern.compile(".*[a-z].*").matcher(pass).matches()
-					|| !Pattern.compile(".*[~!@#$%\\^&*()\\-_=+\\|\\[{\\]};:'\",<.>/?].*").matcher(pass).matches()) {
+					|| !Pattern.compile(".*[~!@#$%\\^&*()\\-_=+\\|\\[{\\]};:'\",<.>/?].*").matcher(pass).matches()
+					|| !Pattern.compile(".*[0-9].*").matcher(pass).matches())
+
+			{
 				return false;
 			}
 

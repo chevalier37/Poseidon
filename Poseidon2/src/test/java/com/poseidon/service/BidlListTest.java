@@ -14,9 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.poseidon.domain.BidList;
-import com.poseidon.repositories.BidListRepository;
-import com.poseidon.services.BidListService;
+import com.poseidon.model.BidList;
+import com.poseidon.repositorie.BidListRepository;
+import com.poseidon.service.BidListService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

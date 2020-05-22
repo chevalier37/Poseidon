@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.poseidon.domain.BidList;
-import com.poseidon.repositories.BidListRepository;
+import com.poseidon.model.BidList;
+import com.poseidon.repositorie.BidListRepository;
 
 import java.util.List;
 import java.util.Optional;

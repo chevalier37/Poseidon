@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.poseidon.domain.Trade;
-import com.poseidon.services.TradeService;
+import com.poseidon.model.Trade;
+import com.poseidon.service.TradeService;
 
 @RestController
 public class TradeController {

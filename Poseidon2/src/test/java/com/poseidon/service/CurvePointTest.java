@@ -14,9 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.poseidon.domain.CurvePoint;
-import com.poseidon.repositories.CurvePointRepository;
-import com.poseidon.services.CurvePointService;
+import com.poseidon.model.CurvePoint;
+import com.poseidon.repositorie.CurvePointRepository;
+import com.poseidon.service.CurvePointService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

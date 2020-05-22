@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poseidon.business.CheckPassword;
-import com.poseidon.domain.User;
-import com.poseidon.services.UserService;
+import com.poseidon.model.User;
+import com.poseidon.service.UserService;
 
 @RestController
 public class UserController {
@@ -30,7 +32,7 @@ public class UserController {
 	private static final Logger logger = LogManager.getRootLogger();
 
 	@PostMapping("/user/add")
-	public User addUser(@RequestBody User user) {
+	public ResponseEntity<?> addUser(@RequestBody User user) {
 		String password = user.getPassword();
 		boolean isPasswordValid = CheckPassword.isLegalPassword(password);
 
@@ -38,10 +40,11 @@ public class UserController {
 			String hashPassword = passwordEncoder.encode((CharSequence) password);
 			user.setPassword(hashPassword);
 			logger.info("Add user : {}", user);
-			return userService.addUser(user);
+			return new ResponseEntity<>(userService.addUser(user), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Password not correct", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
-		return user;
 	}
 
 	@GetMapping("/user/findId/{id}")

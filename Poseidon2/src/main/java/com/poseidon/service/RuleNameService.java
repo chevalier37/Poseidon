@@ -1,4 +1,4 @@
-package com.poseidon.services;
+package com.poseidon.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import com.poseidon.domain.RuleName;
-import com.poseidon.repositories.RuleNameRepository;
+import com.poseidon.model.RuleName;
+import com.poseidon.repositorie.RuleNameRepository;
 
 @Service
 public class RuleNameService {

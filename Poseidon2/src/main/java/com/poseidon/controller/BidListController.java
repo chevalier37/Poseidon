@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.poseidon.domain.BidList;
-import com.poseidon.services.BidListService;
+import com.poseidon.model.BidList;
+import com.poseidon.service.BidListService;
 
 @RestController
 public class BidListController {

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.poseidon.domain.Rating;
-import com.poseidon.services.RatingService;
+import com.poseidon.model.Rating;
+import com.poseidon.service.RatingService;
 
 @RestController
 public class RatingController {

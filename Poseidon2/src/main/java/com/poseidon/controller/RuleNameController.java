@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.poseidon.domain.RuleName;
-import com.poseidon.services.RuleNameService;
+import com.poseidon.model.RuleName;
+import com.poseidon.service.RuleNameService;
 
 @RestController
 public class RuleNameController {

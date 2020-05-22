@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.poseidon.domain.CurvePoint;
-import com.poseidon.services.CurvePointService;
+import com.poseidon.model.CurvePoint;
+import com.poseidon.service.CurvePointService;
 
 @RestController
 public class CurvePointController {

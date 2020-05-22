@@ -1,4 +1,4 @@
-package com.poseidon.services;
+package com.poseidon.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.poseidon.domain.Rating;
-import com.poseidon.repositories.RatingRepository;
+import com.poseidon.model.Rating;
+import com.poseidon.repositorie.RatingRepository;
 
 @Service
 public class RatingService {

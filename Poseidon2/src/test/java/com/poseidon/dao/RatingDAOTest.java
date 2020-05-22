@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.poseidon.domain.Rating;
-import com.poseidon.repositories.RatingRepository;
+import com.poseidon.model.Rating;
+import com.poseidon.repositorie.RatingRepository;
 
 import java.util.List;
 import java.util.Optional;
