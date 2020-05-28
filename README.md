@@ -30,4 +30,4 @@ Dans le header, mettre les informations suivantes :
 
 KEY : Authorization
 
-VALUE : Bearer <mettre ici le token>
+VALUE : Bearer "< mettre ici le token >"
