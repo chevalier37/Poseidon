@@ -25,3 +25,9 @@ Exemple :
 }
 
 2. Utiliser ce token pour chaque requête de l'API
+
+Dans le header, mettre les informations suivantes :
+
+KEY : Authorization
+
+VALUE : Bearer <mettre ici le token>
