@@ -2,6 +2,7 @@
 
 ### Variables d'environements :
 JASYPT_ENCRYPTOR_PASSWORD = poseidon
+
 USERNAME = JBR
 
 ### Générer un token :
