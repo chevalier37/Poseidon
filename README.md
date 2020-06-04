@@ -1,5 +1,9 @@
 # Poseidon
 
+### Documentation :
+Lien de la documentation : 
+https://web.postman.co/collections/10064600-ae7690cb-8786-4523-a70e-440e89afe9d7?version=latest&workspace=ac282a14-d2ab-4bfd-874b-e409eddb7a04#f984a6df-aa60-44ce-84b1-611dc0796fe3
+
 ### Variables d'environements :
 JASYPT_ENCRYPTOR_PASSWORD = poseidon
 
@@ -31,3 +35,5 @@ Dans le header, mettre les informations suivantes :
 KEY : Authorization
 
 VALUE : Bearer "< mettre ici le token >"
+
+
